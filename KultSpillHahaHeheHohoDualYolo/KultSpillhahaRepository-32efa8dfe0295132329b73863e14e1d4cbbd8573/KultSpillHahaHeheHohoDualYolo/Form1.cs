@@ -14,17 +14,16 @@ namespace KultSpillHahaHeheHohoDualYolo
     {
         private int position;
         Spawner enemySpawn = new Spawner();
-        private List<EnemyRectangle> enemyList = Spawner.EnemyList;
+        List<EnemyRectangle> enemyList = Spawner.GetList();
         public Form1()
         {
             InitializeComponent();
             LoadGame();
         }
-        
+
         private void LoadGame()
         {
             enemySpawn.CreateEnemies(this);
-            enemySpawn.CreateGroundi(this);
 
         }
         private void timer1_Tick(object sender, EventArgs e)

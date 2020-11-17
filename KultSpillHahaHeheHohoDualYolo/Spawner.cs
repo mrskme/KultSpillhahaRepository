@@ -10,29 +10,32 @@ namespace KultSpillHahaHeheHohoDualYolo
 {
     class Spawner
     {
-        private static List<EnemyRectangle> enemyList = new List<EnemyRectangle>();
-        static EnemyRectangle enemy0 = new EnemyRectangle(2, "right");
-        static EnemyRectangle enemy1 = new EnemyRectangle(1, "up");
-        static EnemyRectangle enemy2 = new EnemyRectangle(4, "up");
-        static EnemyRectangle enemy3 = new EnemyRectangle(4, "down");
-        static EnemyRectangle enemy4 = new EnemyRectangle(8, "down");
+        public static List<EnemyRectangle> EnemyList { get; } = new List<EnemyRectangle>
+        {
+            new EnemyRectangle(2, "down", Color.Aqua),
+            new EnemyRectangle(1, "up", Color.Coral),
+            new EnemyRectangle(4, "down", Color.Crimson),
+            new EnemyRectangle(4, "up", Color.BlueViolet),
+            new EnemyRectangle(8, "left", Color.Chartreuse)
+        };
 
+        public static List<Ground> GroundList { get; } = new List<Ground>
+        {
+            new Ground("grassBiome", 700, 40, true, Color.GreenYellow),
+        };
+        
         public void CreateEnemies(Form1 formInstance)
         {
-            enemy0.SpawnRectangle(formInstance, 100, 50, Color.Aqua);
-            enemy1.SpawnRectangle(formInstance, 100, 101, Color.Coral);
-            enemy2.SpawnRectangle(formInstance, 100, 152, Color.Crimson);
-            enemy3.SpawnRectangle(formInstance, 100, 203, Color.BlueViolet);
-            enemy4.SpawnRectangle(formInstance, 100, 254, Color.Chartreuse);
-            enemyList.Add(enemy0);
-            enemyList.Add(enemy1);
-            enemyList.Add(enemy2);
-            enemyList.Add(enemy3);
-            enemyList.Add(enemy4);
+            EnemyList[0].SpawnRectangle(formInstance, 100, 50);
+            EnemyList[1].SpawnRectangle(formInstance, 100, 250);
+            EnemyList[2].SpawnRectangle(formInstance, 200, 50);
+            EnemyList[3].SpawnRectangle(formInstance, 200, 250);
+            EnemyList[4].SpawnRectangle(formInstance, 500, 150);
         }
-        public static List<EnemyRectangle> GetList()
+
+        public void CreateGroundi(Form1 formInstance)
         {
-            return enemyList;
+            GroundList[0].SpawnRectangle(formInstance, 0, 335);
         }
         //static for å lage objekt av klassen
     }

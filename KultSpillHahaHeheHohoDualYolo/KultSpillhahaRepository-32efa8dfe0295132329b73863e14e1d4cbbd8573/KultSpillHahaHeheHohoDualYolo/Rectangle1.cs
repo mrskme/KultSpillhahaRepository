@@ -13,23 +13,21 @@ namespace KultSpillHahaHeheHohoDualYolo
         private string _name;
         private int _width;
         private int _height;
-        private Color _color;
          protected PictureBox newRectangle { get; } = new PictureBox(); 
 
-        public Rectangle1(string name, int width, int height, Color color)
+        public Rectangle1(string name, int width, int height)
         {
             _name = name;
             _width = width;
             _height = height;
-            newRectangle.BackColor = color;
         }
 
-        public void SpawnRectangle(Form formInstance, int x, int y/*, Color color*/)
+        public void SpawnRectangle(Form formInstance, int x, int y, Color color)
         {
             newRectangle.Name = _name;
             newRectangle.Width = _width;
             newRectangle.Height = _height;
-            //newRectangle.BackColor = color;
+            newRectangle.BackColor = color;
             newRectangle.Location = new Point(x,y);
             formInstance.Controls.Add(newRectangle);
         }

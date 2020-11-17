@@ -46,8 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ground.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="Spawner.cs" />
     <Compile Include="EnemyRectangle.cs" />
     <Compile Include="Form1.cs">

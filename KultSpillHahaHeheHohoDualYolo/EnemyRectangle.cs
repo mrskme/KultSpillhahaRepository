@@ -12,63 +12,48 @@ namespace KultSpillHahaHeheHohoDualYolo
         private int _speed;
         private string _direction;
         private bool _isColliding;
-        static readonly List<EnemyRectangle> _enemyList = Spawner.GetList();
-        public EnemyRectangle(int speed, string direction) : base("Enemy", 50, 50)
+        public EnemyRectangle(int speed, string direction, Color color) : base("Enemy", 50, 50, color)
         {
             _speed = speed;
             _direction = direction;
         }
         public void MoveDirection()
         {
-            if (!_isColliding)
+            if (_direction == "down")
             {
-                if (_direction == "down")
-                {
-                    newRectangle.Top += _speed;
-                }
+                newRectangle.Top += _speed;
             }
-            if (!_isColliding)
+            else if (_direction == "up")
             {
-                if (_direction == "up")
-                {
-                    newRectangle.Top -= _speed;
-                }
+                newRectangle.Top -= _speed;
             }
-            if (!_isColliding)
+            else if (_direction == "left")
             {
-                if (_direction == "left")
-                {
-                    newRectangle.Left -= _speed;
-                }
+                newRectangle.Left -= _speed;
             }
-            if (!_isColliding)
+            else if (_direction == "right")
             {
-                if (_direction == "right")
-                {
-                    newRectangle.Left += _speed;
-                }
+                newRectangle.Left += _speed;
             }
         }
-        public void EnemyColliderino(EnemyRectangle enemy2)
+        public void CheckForCollision(EnemyRectangle enemy2)
         {
-            if (newRectangle.Bounds.IntersectsWith(enemy2.newRectangle.Bounds))
+            var isColliding = newRectangle.Bounds.IntersectsWith(enemy2.newRectangle.Bounds);
+            if (isColliding)
             {
-                _isColliding = true;
-            }
-            else 
-            {
-                _isColliding = false;
+                _direction = null;
             }
         }
         public static void IsEnemyColliding()
         {
-            foreach (EnemyRectangle enemy in _enemyList)
+            var enemyList = Spawner.EnemyList;
+            foreach (EnemyRectangle enemy in enemyList)
             {
-                foreach (EnemyRectangle enemy2 in _enemyList)
+                foreach (EnemyRectangle enemy2 in enemyList)
                 {
                     if (enemy != enemy2)
                     {
-                        enemy.EnemyColliderino(enemy2);
+                        enemy.CheckForCollision(enemy2);
                     }
                 }
             }
