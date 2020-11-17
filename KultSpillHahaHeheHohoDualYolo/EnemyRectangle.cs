@@ -55,7 +55,10 @@ namespace KultSpillHahaHeheHohoDualYolo
             {
                 _isColliding = true;
             }
-            _isColliding = false;
+            else 
+            {
+                _isColliding = false;
+            }
         }
         public static void IsEnemyColliding()
         {

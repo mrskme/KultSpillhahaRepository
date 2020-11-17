@@ -28,8 +28,8 @@ namespace KultSpillHahaHeheHohoDualYolo
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Move();
             EnemyRectangle.IsEnemyColliding();
+            Move();
         }
         public void Move()
         {

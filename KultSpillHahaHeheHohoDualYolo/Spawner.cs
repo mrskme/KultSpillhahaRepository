@@ -19,11 +19,11 @@ namespace KultSpillHahaHeheHohoDualYolo
 
         public void CreateEnemies(Form1 formInstance)
         {
-            enemy0.SpawnRectangle(formInstance, 50, 0, Color.Aqua);
-            enemy1.SpawnRectangle(formInstance, 150, 350, Color.Coral);
-            enemy2.SpawnRectangle(formInstance, 250, 350, Color.Crimson);
-            enemy3.SpawnRectangle(formInstance, 350, 100, Color.BlueViolet);
-            enemy4.SpawnRectangle(formInstance, 450, 50, Color.Chartreuse);
+            enemy0.SpawnRectangle(formInstance, 100, 50, Color.Aqua);
+            enemy1.SpawnRectangle(formInstance, 100, 101, Color.Coral);
+            enemy2.SpawnRectangle(formInstance, 100, 152, Color.Crimson);
+            enemy3.SpawnRectangle(formInstance, 100, 203, Color.BlueViolet);
+            enemy4.SpawnRectangle(formInstance, 100, 254, Color.Chartreuse);
             enemyList.Add(enemy0);
             enemyList.Add(enemy1);
             enemyList.Add(enemy2);
