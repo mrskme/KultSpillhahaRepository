@@ -14,8 +14,7 @@ namespace KultSpillHahaHeheHohoDualYolo
     {
         private int position;
         Spawner enemySpawn = new Spawner();
-        List<EnemyRectangle> enemyList = new Spawner().GetList();
-        //private List<EnemyRectangle> enemyList = new List<EnemyRectangle>();
+        List<EnemyRectangle> enemyList = Spawner.GetList();
         public Form1()
         {
             InitializeComponent();
@@ -25,32 +24,19 @@ namespace KultSpillHahaHeheHohoDualYolo
         private void LoadGame()
         {
             enemySpawn.CreateEnemies(this);
+
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
             Move();
+            EnemyRectangle.IsEnemyColliding();
         }
         public void Move()
         {
-            enemyList[0].MoveDirection();
-            enemyList[1].MoveDirection();
-            enemyList[2].MoveDirection();
-            enemyList[3].MoveDirection();
+            for (int i = 0; i < enemyList.Count; i++)
+            {
+                enemyList[i].MoveDirection();
+            }
         }
-
-        //public void CollisionCheck()
-        //{
-        //    foreach (EnemyRectangle enemy in enemyList)
-        //    {
-        //        foreach (EnemyRectangle enemy2 in enemyList)
-        //        {
-        //            if (enemy != enemy2)
-        //            {
-        //                enemy.Colliderino(enemy2);
-        //            }
-
-        //        }
-        //    }
-        //}
     }
 }
